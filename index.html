@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nth Rarest Item Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+
+    input, button {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nth Rarest Item Finder</h1>
+
+  <label for="numbers">Enter a list of numbers (comma-separated):</label>
+  <br>
+  <input type="text" id="numbers" placeholder="e.g., 5, 4, 5, 4, ..." style="width: 80%;">
+  <br>
+
+  <label for="nth">Enter the value of N:</label>
+  <br>
+  <input type="number" id="nth" placeholder="e.g., 2" style="width: 80%;">
+  <br>
+
+  <button onclick="findNthRarest()">Find Nth Rarest Item</button>
+  <br>
+
+  <div id="result"></div>
+
+  <script>
+    function findNthRarest() {
+      const numbersInput = document.getElementById("numbers");
+      const nthInput = document.getElementById("nth");
+      const resultDiv = document.getElementById("result");
+
+      const numbers = numbersInput.value.split(",").map(num => parseInt(num.trim(), 10));
+      const nth = parseInt(nthInput.value, 10);
+
+      // Call the JavaScript function
+      const result = nthMostRare(numbers, nth);
+
+      // Display the result on the webpage
+      resultDiv.textContent = `The ${nth}th rarest item is: ${result}`;
+    }
+  </script>
+</body>
+</html>
